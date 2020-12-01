@@ -25,7 +25,7 @@ setuptools.setup(
     package_data={'pbn2html': ['*.pbn']},
     classifiers=[
         "Programming Language :: Python :: 3",
-        "License :: OSI Approved :: Apache Software License :: 2.0",
+        "License :: OSI Approved :: Apache Software License",
         "Operating System :: OS Independent",
     ],
     entry_points = {
