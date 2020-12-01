@@ -14,7 +14,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="pbn2html", # Replace with your own username
-    version="0.0.1",
+    version="0.0.2",
     author="Larry Cai",
 	author_email='larry.caiyu@gmail.com',
 	url='https://github.com/larrycai/pbn2html',
@@ -22,7 +22,7 @@ setuptools.setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     packages=setuptools.find_packages(),
-    package_data={'pbn2html': ['*.pbn']},
+    package_data={'pbn2html': ['*.html']},
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: Apache Software License",
