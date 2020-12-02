@@ -1,0 +1,781 @@
+% PBN 2.1
+% EXPORT
+%Content-type: text/x-pbn; charset=UTF-8
+%Creator: xin2pbn.py
+%Created: Sun Apr  1 21:55:24 2018 +0200
+%BidAndCardSpacing Thin
+%BoardsPerPage 1
+%CardTableColors #008000,#ffffff,#aaaaaa
+%EventSpacing 0
+%Font:CardTable "Arial",11,400,0
+%Font:Commentary "Times New Roman",12,400,0
+%Font:Diagram "Times New Roman",12,400,0
+%Font:Event "Times New Roman",12,400,0
+%Font:FixedPitch "Courier New",10,400,0
+%Font:HandRecord "Arial",11,400,0
+%GutterSize 500,500
+%HtmlClubs entity,"https://bridgecomposer.com/suitimg/c.gif"
+%HtmlDiamonds entity,"https://bridgecomposer.com/suitimg/d.gif"
+%HtmlHearts entity,"https://bridgecomposer.com/suitimg/h.gif"
+%HtmlNavBar 0.75,#cfe2f3
+%HtmlSpades entity,"https://bridgecomposer.com/suitimg/s.gif"
+%Margins 1000,1000,1000,1000
+%PaperSize 1,0,0,2
+%ParaIndent 0
+%PipColors #000000,#ff0000,#ff0000,#000000
+%PipFont "Symbol","Symbol",2,0xAA,0xA9,0xA8,0xA7
+%ScoreTableColors #e6e6e6,#000000
+%SelectedBoard 0
+%ShowBoardLabels 2
+%ShowCardTable 2
+%TSTCustomSortOrder Default
+%TSTReport List
+%TSTReportOrder ByNumber
+%TSTReportShade Yes
+[Event "群组IMP赛 20201110 牌号 6/8"]
+[Site ""]
+[Date ""]
+[Board ""]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "E"]
+[Vulnerable "EW"]
+[Deal "E:9.K.J976543.9854 875432.75.A.KQT7 QT6.AJ8643.KQT8. AKJ.QT92.2.AJ632"]
+[Scoring "450"]
+[Declarer "S"]
+[Contract "4S"]
+[Result "11"]
+[Auction "E"]
+Pass Pass 1H 2C
+Pass 2S Pass 4S
+Pass Pass Pass
+[Play "W"]
+DK D2 D3 DA
+S6 SA S9 S2
+ST SK D4 S3
+SQ SJ D5 S4
+H8 H9 HK H5
+D8 H2 D7 S5
+
+
+% PBN 2.1
+% EXPORT
+%Content-type: text/x-pbn; charset=UTF-8
+%Creator: xin2pbn.py
+%Created: Sun Apr  1 21:55:24 2018 +0200
+%BidAndCardSpacing Thin
+%BoardsPerPage 1
+%CardTableColors #008000,#ffffff,#aaaaaa
+%EventSpacing 0
+%Font:CardTable "Arial",11,400,0
+%Font:Commentary "Times New Roman",12,400,0
+%Font:Diagram "Times New Roman",12,400,0
+%Font:Event "Times New Roman",12,400,0
+%Font:FixedPitch "Courier New",10,400,0
+%Font:HandRecord "Arial",11,400,0
+%GutterSize 500,500
+%HtmlClubs entity,"https://bridgecomposer.com/suitimg/c.gif"
+%HtmlDiamonds entity,"https://bridgecomposer.com/suitimg/d.gif"
+%HtmlHearts entity,"https://bridgecomposer.com/suitimg/h.gif"
+%HtmlNavBar 0.75,#cfe2f3
+%HtmlSpades entity,"https://bridgecomposer.com/suitimg/s.gif"
+%Margins 1000,1000,1000,1000
+%PaperSize 1,0,0,2
+%ParaIndent 0
+%PipColors #000000,#ff0000,#ff0000,#000000
+%PipFont "Symbol","Symbol",2,0xAA,0xA9,0xA8,0xA7
+%ScoreTableColors #e6e6e6,#000000
+%SelectedBoard 0
+%ShowBoardLabels 2
+%ShowCardTable 2
+%TSTCustomSortOrder Default
+%TSTReport List
+%TSTReportOrder ByNumber
+%TSTReportShade Yes
+[Event "群组IMP赛 20201110 牌号 7/8"]
+[Site ""]
+[Date ""]
+[Board ""]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "S"]
+[Vulnerable "All"]
+[Deal "S:K753.843.T42.K52 862.AQ9.AJ95.AQT AJT94.JT76.KQ7.8 Q.K52.863.J97643"]
+[Scoring "-150"]
+[Declarer "W"]
+[Contract "4C"]
+[Result "11"]
+[Auction "S"]
+Pass 1NT 2C 2NT
+Pass 3C Pass Pass
+3S 4C Pass Pass
+Pass
+[Play "N"]
+C8 C4 C2 CT
+SA SQ S5 S6
+DK D3 D2 DA
+S4 C3 S3 S2
+SJ CJ C5 CQ
+ST C9 CK CA
+S9 C7 S7 S8
+H7 H2 H3 HA
+H6 HK H4 H9
+DQ D6 D4 D9
+
+
+% PBN 2.1
+% EXPORT
+%Content-type: text/x-pbn; charset=UTF-8
+%Creator: xin2pbn.py
+%Created: Sun Apr  1 21:55:24 2018 +0200
+%BidAndCardSpacing Thin
+%BoardsPerPage 1
+%CardTableColors #008000,#ffffff,#aaaaaa
+%EventSpacing 0
+%Font:CardTable "Arial",11,400,0
+%Font:Commentary "Times New Roman",12,400,0
+%Font:Diagram "Times New Roman",12,400,0
+%Font:Event "Times New Roman",12,400,0
+%Font:FixedPitch "Courier New",10,400,0
+%Font:HandRecord "Arial",11,400,0
+%GutterSize 500,500
+%HtmlClubs entity,"https://bridgecomposer.com/suitimg/c.gif"
+%HtmlDiamonds entity,"https://bridgecomposer.com/suitimg/d.gif"
+%HtmlHearts entity,"https://bridgecomposer.com/suitimg/h.gif"
+%HtmlNavBar 0.75,#cfe2f3
+%HtmlSpades entity,"https://bridgecomposer.com/suitimg/s.gif"
+%Margins 1000,1000,1000,1000
+%PaperSize 1,0,0,2
+%ParaIndent 0
+%PipColors #000000,#ff0000,#ff0000,#000000
+%PipFont "Symbol","Symbol",2,0xAA,0xA9,0xA8,0xA7
+%ScoreTableColors #e6e6e6,#000000
+%SelectedBoard 0
+%ShowBoardLabels 2
+%ShowCardTable 2
+%TSTCustomSortOrder Default
+%TSTReport List
+%TSTReportOrder ByNumber
+%TSTReportShade Yes
+[Event "群组IMP赛 20201112 牌号 2/8"]
+[Site ""]
+[Date ""]
+[Board ""]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "E"]
+[Vulnerable "NS"]
+[Deal "E:K965.AQ643.J5.84 A7.JT.Q4.AKJT652 Q32.972.9863.Q97 JT84.K85.AKT72.3"]
+[Scoring "600"]
+[Declarer "N"]
+[Contract "3NT"]
+[Result "9"]
+[Auction "E"]
+Pass 1C Pass 1S
+Pass 3C Pass 3NT
+Pass Pass Pass
+[Play "E"]
+H4 HJ H2 H5
+D5 DQ D6 D2
+DJ D4 D3 DA
+S5 HT D8 DK
+H3 S7 D9 DT
+S6 C2 S2 D7
+C8 CK C7 C3
+C4 CA C9 H8
+
+
+% PBN 2.1
+% EXPORT
+%Content-type: text/x-pbn; charset=UTF-8
+%Creator: xin2pbn.py
+%Created: Sun Apr  1 21:55:24 2018 +0200
+%BidAndCardSpacing Thin
+%BoardsPerPage 1
+%CardTableColors #008000,#ffffff,#aaaaaa
+%EventSpacing 0
+%Font:CardTable "Arial",11,400,0
+%Font:Commentary "Times New Roman",12,400,0
+%Font:Diagram "Times New Roman",12,400,0
+%Font:Event "Times New Roman",12,400,0
+%Font:FixedPitch "Courier New",10,400,0
+%Font:HandRecord "Arial",11,400,0
+%GutterSize 500,500
+%HtmlClubs entity,"https://bridgecomposer.com/suitimg/c.gif"
+%HtmlDiamonds entity,"https://bridgecomposer.com/suitimg/d.gif"
+%HtmlHearts entity,"https://bridgecomposer.com/suitimg/h.gif"
+%HtmlNavBar 0.75,#cfe2f3
+%HtmlSpades entity,"https://bridgecomposer.com/suitimg/s.gif"
+%Margins 1000,1000,1000,1000
+%PaperSize 1,0,0,2
+%ParaIndent 0
+%PipColors #000000,#ff0000,#ff0000,#000000
+%PipFont "Symbol","Symbol",2,0xAA,0xA9,0xA8,0xA7
+%ScoreTableColors #e6e6e6,#000000
+%SelectedBoard 0
+%ShowBoardLabels 2
+%ShowCardTable 2
+%TSTCustomSortOrder Default
+%TSTReport List
+%TSTReportOrder ByNumber
+%TSTReportShade Yes
+[Event "群组IMP赛 20201116 牌号 8/8"]
+[Site ""]
+[Date ""]
+[Board ""]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "W"]
+[Vulnerable "None"]
+[Deal "W:KQ964.Q43.8.J964 7.AKT86.AQT97.53 J532.J97.642.Q82 AT8.52.KJ53.AKT7"]
+[Scoring "1440"]
+[Declarer "N"]
+[Contract "7D"]
+[Result "13"]
+[Auction "W"]
+Pass 1H Pass 2C
+Pass 2D Pass 3D
+Pass 4S Pass 4NT
+Pass 5S Pass 7D
+Pass Pass Pass
+[Play "E"]
+D2 D3 D8 D9
+D4 D5 S6 DA
+H7 H2 H3 HA
+H9 H5 H4 HK
+HJ DK HQ H6
+
+
+% PBN 2.1
+% EXPORT
+%Content-type: text/x-pbn; charset=UTF-8
+%Creator: xin2pbn.py
+%Created: Sun Apr  1 21:55:24 2018 +0200
+%BidAndCardSpacing Thin
+%BoardsPerPage 1
+%CardTableColors #008000,#ffffff,#aaaaaa
+%EventSpacing 0
+%Font:CardTable "Arial",11,400,0
+%Font:Commentary "Times New Roman",12,400,0
+%Font:Diagram "Times New Roman",12,400,0
+%Font:Event "Times New Roman",12,400,0
+%Font:FixedPitch "Courier New",10,400,0
+%Font:HandRecord "Arial",11,400,0
+%GutterSize 500,500
+%HtmlClubs entity,"https://bridgecomposer.com/suitimg/c.gif"
+%HtmlDiamonds entity,"https://bridgecomposer.com/suitimg/d.gif"
+%HtmlHearts entity,"https://bridgecomposer.com/suitimg/h.gif"
+%HtmlNavBar 0.75,#cfe2f3
+%HtmlSpades entity,"https://bridgecomposer.com/suitimg/s.gif"
+%Margins 1000,1000,1000,1000
+%PaperSize 1,0,0,2
+%ParaIndent 0
+%PipColors #000000,#ff0000,#ff0000,#000000
+%PipFont "Symbol","Symbol",2,0xAA,0xA9,0xA8,0xA7
+%ScoreTableColors #e6e6e6,#000000
+%SelectedBoard 0
+%ShowBoardLabels 2
+%ShowCardTable 2
+%TSTCustomSortOrder Default
+%TSTReport List
+%TSTReportOrder ByNumber
+%TSTReportShade Yes
+[Event "群组IMP赛 20201117 牌号 3/8"]
+[Site ""]
+[Date ""]
+[Board ""]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "S"]
+[Vulnerable "EW"]
+[Deal "S:JT6.9864.Q92.AQ7 AQ987.AKQT.T6.T4 K532.J.AKJ75.KJ6 4.7532.843.98532"]
+[Scoring "130"]
+[Declarer "N"]
+[Contract "4D"]
+[Result "10"]
+[Auction "S"]
+Pass 1S 2D Pass
+3D 3H 4D Pass
+Pass Pass
+[Play "E"]
+S4 SJ SA S3
+H2 H4 HK HJ
+H3 H6 HA D5
+D3 D2 D6 DA
+D8 DQ DT D7
+H5 H9 HT DK
+C2 CQ CT C6
+H7 H8 HQ DJ
+C3 CA C4 CJ
+
+
+% PBN 2.1
+% EXPORT
+%Content-type: text/x-pbn; charset=UTF-8
+%Creator: xin2pbn.py
+%Created: Sun Apr  1 21:55:24 2018 +0200
+%BidAndCardSpacing Thin
+%BoardsPerPage 1
+%CardTableColors #008000,#ffffff,#aaaaaa
+%EventSpacing 0
+%Font:CardTable "Arial",11,400,0
+%Font:Commentary "Times New Roman",12,400,0
+%Font:Diagram "Times New Roman",12,400,0
+%Font:Event "Times New Roman",12,400,0
+%Font:FixedPitch "Courier New",10,400,0
+%Font:HandRecord "Arial",11,400,0
+%GutterSize 500,500
+%HtmlClubs entity,"https://bridgecomposer.com/suitimg/c.gif"
+%HtmlDiamonds entity,"https://bridgecomposer.com/suitimg/d.gif"
+%HtmlHearts entity,"https://bridgecomposer.com/suitimg/h.gif"
+%HtmlNavBar 0.75,#cfe2f3
+%HtmlSpades entity,"https://bridgecomposer.com/suitimg/s.gif"
+%Margins 1000,1000,1000,1000
+%PaperSize 1,0,0,2
+%ParaIndent 0
+%PipColors #000000,#ff0000,#ff0000,#000000
+%PipFont "Symbol","Symbol",2,0xAA,0xA9,0xA8,0xA7
+%ScoreTableColors #e6e6e6,#000000
+%SelectedBoard 0
+%ShowBoardLabels 2
+%ShowCardTable 2
+%TSTCustomSortOrder Default
+%TSTReport List
+%TSTReportOrder ByNumber
+%TSTReportShade Yes
+[Event "群组IMP赛 20201118 牌号 1/8"]
+[Site ""]
+[Date ""]
+[Board ""]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "N"]
+[Vulnerable "None"]
+[Deal "N:Q32.AQT32.AT654. KT5.J85.QJ7.9874 J74.74.98.AKQ532 A986.K96.K32.JT6"]
+[Scoring "110"]
+[Declarer "N"]
+[Contract "3D"]
+[Result "9"]
+[Auction "N"]
+1H Pass 1NT Pass
+2D Pass 2NT Pass
+3D Pass Pass Pass
+[Play "E"]
+S5 S4 SA SQ
+SK S7 S6 S2
+ST SJ S9 S3
+C7 CQ CJ H2
+C4 CK C6 H3
+H5 H4 H6 HQ
+HJ H7 H9 HA
+H8 D9 HK HT
+D7 D8 D2 DA
+DQ C3 D3 D6
+C9 C2 CT D5
+DJ C5 DK DT
+C8 CA S8 D4
+
+% PBN 2.1
+% EXPORT
+%Content-type: text/x-pbn; charset=UTF-8
+%Creator: xin2pbn.py
+%Created: Sun Apr  1 21:55:24 2018 +0200
+%BidAndCardSpacing Thin
+%BoardsPerPage 1
+%CardTableColors #008000,#ffffff,#aaaaaa
+%EventSpacing 0
+%Font:CardTable "Arial",11,400,0
+%Font:Commentary "Times New Roman",12,400,0
+%Font:Diagram "Times New Roman",12,400,0
+%Font:Event "Times New Roman",12,400,0
+%Font:FixedPitch "Courier New",10,400,0
+%Font:HandRecord "Arial",11,400,0
+%GutterSize 500,500
+%HtmlClubs entity,"https://bridgecomposer.com/suitimg/c.gif"
+%HtmlDiamonds entity,"https://bridgecomposer.com/suitimg/d.gif"
+%HtmlHearts entity,"https://bridgecomposer.com/suitimg/h.gif"
+%HtmlNavBar 0.75,#cfe2f3
+%HtmlSpades entity,"https://bridgecomposer.com/suitimg/s.gif"
+%Margins 1000,1000,1000,1000
+%PaperSize 1,0,0,2
+%ParaIndent 0
+%PipColors #000000,#ff0000,#ff0000,#000000
+%PipFont "Symbol","Symbol",2,0xAA,0xA9,0xA8,0xA7
+%ScoreTableColors #e6e6e6,#000000
+%SelectedBoard 0
+%ShowBoardLabels 2
+%ShowCardTable 2
+%TSTCustomSortOrder Default
+%TSTReport List
+%TSTReportOrder ByNumber
+%TSTReportShade Yes
+[Event "群组IMP赛 20201121 牌号 2/8"]
+[Site ""]
+[Date ""]
+[Board ""]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "E"]
+[Vulnerable "NS"]
+[Deal "E:T96.A62.J975.985 KQ832.954.T.Q732 AJ754.T8.K842.K4 .KQJ73.AQ63.AJT6"]
+[Scoring "620"]
+[Declarer "S"]
+[Contract "5C"]
+[Result "12"]
+[Auction "E"]
+Pass Pass 1S X
+2S Pass Pass X
+Pass 3C Pass 4C
+Pass 5C Pass Pass
+Pass
+[Play "W"]
+HT HK HA H4
+SA C6 ST SK
+H8 H3 H2 H9
+DK DA D7 DT
+D2 D3 D9 C2
+C4 CT C5 C3
+D4 D6 D5 CQ
+CK CA C8 C7
+
+
+% PBN 2.1
+% EXPORT
+%Content-type: text/x-pbn; charset=UTF-8
+%Creator: xin2pbn.py
+%Created: Sun Apr  1 21:55:24 2018 +0200
+%BidAndCardSpacing Thin
+%BoardsPerPage 1
+%CardTableColors #008000,#ffffff,#aaaaaa
+%EventSpacing 0
+%Font:CardTable "Arial",11,400,0
+%Font:Commentary "Times New Roman",12,400,0
+%Font:Diagram "Times New Roman",12,400,0
+%Font:Event "Times New Roman",12,400,0
+%Font:FixedPitch "Courier New",10,400,0
+%Font:HandRecord "Arial",11,400,0
+%GutterSize 500,500
+%HtmlClubs entity,"https://bridgecomposer.com/suitimg/c.gif"
+%HtmlDiamonds entity,"https://bridgecomposer.com/suitimg/d.gif"
+%HtmlHearts entity,"https://bridgecomposer.com/suitimg/h.gif"
+%HtmlNavBar 0.75,#cfe2f3
+%HtmlSpades entity,"https://bridgecomposer.com/suitimg/s.gif"
+%Margins 1000,1000,1000,1000
+%PaperSize 1,0,0,2
+%ParaIndent 0
+%PipColors #000000,#ff0000,#ff0000,#000000
+%PipFont "Symbol","Symbol",2,0xAA,0xA9,0xA8,0xA7
+%ScoreTableColors #e6e6e6,#000000
+%SelectedBoard 0
+%ShowBoardLabels 2
+%ShowCardTable 2
+%TSTCustomSortOrder Default
+%TSTReport List
+%TSTReportOrder ByNumber
+%TSTReportShade Yes
+[Event "个人赛 第3轮 牌号 12/16"]
+[Site ""]
+[Date ""]
+[Board ""]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "W"]
+[Vulnerable "NS"]
+[Deal "W:QJ97.T96.T.T9873 K.832.J942.AKJ42 8632.AQJ54.86.Q5 AT54.K7.AKQ753.6"]
+[Scoring "1370"]
+[Declarer "S"]
+[Contract "6D"]
+[Result "12"]
+[Auction "W"]
+Pass 1C 1H 2D
+Pass 3D Pass 3H
+Pass 5D Pass 6D
+Pass Pass Pass
+[Play "W"]
+HT H2 HA H7
+H6 H3 HQ HK
+
+
+% PBN 2.1
+% EXPORT
+%Content-type: text/x-pbn; charset=UTF-8
+%Creator: xin2pbn.py
+%Created: Sun Apr  1 21:55:24 2018 +0200
+%BidAndCardSpacing Thin
+%BoardsPerPage 1
+%CardTableColors #008000,#ffffff,#aaaaaa
+%EventSpacing 0
+%Font:CardTable "Arial",11,400,0
+%Font:Commentary "Times New Roman",12,400,0
+%Font:Diagram "Times New Roman",12,400,0
+%Font:Event "Times New Roman",12,400,0
+%Font:FixedPitch "Courier New",10,400,0
+%Font:HandRecord "Arial",11,400,0
+%GutterSize 500,500
+%HtmlClubs entity,"https://bridgecomposer.com/suitimg/c.gif"
+%HtmlDiamonds entity,"https://bridgecomposer.com/suitimg/d.gif"
+%HtmlHearts entity,"https://bridgecomposer.com/suitimg/h.gif"
+%HtmlNavBar 0.75,#cfe2f3
+%HtmlSpades entity,"https://bridgecomposer.com/suitimg/s.gif"
+%Margins 1000,1000,1000,1000
+%PaperSize 1,0,0,2
+%ParaIndent 0
+%PipColors #000000,#ff0000,#ff0000,#000000
+%PipFont "Symbol","Symbol",2,0xAA,0xA9,0xA8,0xA7
+%ScoreTableColors #e6e6e6,#000000
+%SelectedBoard 0
+%ShowBoardLabels 2
+%ShowCardTable 2
+%TSTCustomSortOrder Default
+%TSTReport List
+%TSTReportOrder ByNumber
+%TSTReportShade Yes
+[Event "个人赛 第3轮 牌号 16/16"]
+[Site ""]
+[Date ""]
+[Board ""]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "W"]
+[Vulnerable "EW"]
+[Deal "W:AT.QJT987.A96.65 QJ842.AK6.KQ.QJ3 9763.3.T543.AT82 K5.542.J872.K974"]
+[Scoring "400"]
+[Declarer "N"]
+[Contract "3NT"]
+[Result "9"]
+[Auction "W"]
+1H X Pass 2D
+Pass 2S Pass 3H
+Pass 3NT Pass Pass
+Pass
+[Play "E"]
+D3 D2 DA DK
+H3 H2 HQ H6
+C8 H4 H7 HA
+D4 D7 D6 DQ
+CA C4 C5 CQ
+C2 C7 C6 CJ
+S6 SK SA S2
+S7 S5 ST SQ
+S9 D8 HJ SJ
+
+
+% PBN 2.1
+% EXPORT
+%Content-type: text/x-pbn; charset=UTF-8
+%Creator: xin2pbn.py
+%Created: Sun Apr  1 21:55:24 2018 +0200
+%BidAndCardSpacing Thin
+%BoardsPerPage 1
+%CardTableColors #008000,#ffffff,#aaaaaa
+%EventSpacing 0
+%Font:CardTable "Arial",11,400,0
+%Font:Commentary "Times New Roman",12,400,0
+%Font:Diagram "Times New Roman",12,400,0
+%Font:Event "Times New Roman",12,400,0
+%Font:FixedPitch "Courier New",10,400,0
+%Font:HandRecord "Arial",11,400,0
+%GutterSize 500,500
+%HtmlClubs entity,"https://bridgecomposer.com/suitimg/c.gif"
+%HtmlDiamonds entity,"https://bridgecomposer.com/suitimg/d.gif"
+%HtmlHearts entity,"https://bridgecomposer.com/suitimg/h.gif"
+%HtmlNavBar 0.75,#cfe2f3
+%HtmlSpades entity,"https://bridgecomposer.com/suitimg/s.gif"
+%Margins 1000,1000,1000,1000
+%PaperSize 1,0,0,2
+%ParaIndent 0
+%PipColors #000000,#ff0000,#ff0000,#000000
+%PipFont "Symbol","Symbol",2,0xAA,0xA9,0xA8,0xA7
+%ScoreTableColors #e6e6e6,#000000
+%SelectedBoard 0
+%ShowBoardLabels 2
+%ShowCardTable 2
+%TSTCustomSortOrder Default
+%TSTReport List
+%TSTReportOrder ByNumber
+%TSTReportShade Yes
+[Event "个人赛 第6轮 牌号 4/8"]
+[Site ""]
+[Date ""]
+[Board ""]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "W"]
+[Vulnerable "All"]
+[Deal "W:AJT842.KJ9.T9.62 93.T8654.AKJ.Q53 65.A732.8742.K94 KQ7.Q.Q653.AJT87"]
+[Scoring "-300"]
+[Declarer "N"]
+[Contract "4H"]
+[Result "7"]
+[Auction "W"]
+2S Pass Pass X
+Pass 4H Pass Pass
+Pass
+[Play "E"]
+S6 SQ SA S3
+S5 SK SJ S9
+H7 S7 S8 H4
+D4 D3 D9 DJ
+D2 D5 DT DK
+D8 D6 H9 DA
+H2 HQ HK H5
+D7 C7 ST H6
+CK CA C6 CQ
+C4 CJ C2 C3
+C9 CT HJ C5
+H3 C8 S4 H8
+HA DQ S2 HT
+
+% PBN 2.1
+% EXPORT
+%Content-type: text/x-pbn; charset=UTF-8
+%Creator: xin2pbn.py
+%Created: Sun Apr  1 21:55:24 2018 +0200
+%BidAndCardSpacing Thin
+%BoardsPerPage 1
+%CardTableColors #008000,#ffffff,#aaaaaa
+%EventSpacing 0
+%Font:CardTable "Arial",11,400,0
+%Font:Commentary "Times New Roman",12,400,0
+%Font:Diagram "Times New Roman",12,400,0
+%Font:Event "Times New Roman",12,400,0
+%Font:FixedPitch "Courier New",10,400,0
+%Font:HandRecord "Arial",11,400,0
+%GutterSize 500,500
+%HtmlClubs entity,"https://bridgecomposer.com/suitimg/c.gif"
+%HtmlDiamonds entity,"https://bridgecomposer.com/suitimg/d.gif"
+%HtmlHearts entity,"https://bridgecomposer.com/suitimg/h.gif"
+%HtmlNavBar 0.75,#cfe2f3
+%HtmlSpades entity,"https://bridgecomposer.com/suitimg/s.gif"
+%Margins 1000,1000,1000,1000
+%PaperSize 1,0,0,2
+%ParaIndent 0
+%PipColors #000000,#ff0000,#ff0000,#000000
+%PipFont "Symbol","Symbol",2,0xAA,0xA9,0xA8,0xA7
+%ScoreTableColors #e6e6e6,#000000
+%SelectedBoard 0
+%ShowBoardLabels 2
+%ShowCardTable 2
+%TSTCustomSortOrder Default
+%TSTReport List
+%TSTReportOrder ByNumber
+%TSTReportShade Yes
+[Event "个人赛 第1轮 牌号 7/8"]
+[Site ""]
+[Date ""]
+[Board ""]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "S"]
+[Vulnerable "All"]
+[Deal "S:AK973.K876.AKQ5. 52.T2.T72.A87543 8.AJ95.9643.J962 QJT64.Q43.J8.KQT"]
+[Scoring "1430"]
+[Declarer "S"]
+[Contract "6H"]
+[Result "12"]
+[Auction "S"]
+1S Pass 1NT Pass
+3H Pass 4H Pass
+4NT Pass 5C Pass
+5D Pass 5H Pass
+6H Pass Pass Pass
+[Play "W"]
+CA C2 CT H6
+S5 S8 S4 SA
+S2 H9 S6 S3
+D7 D3 D8 DQ
+D2 H5 SQ S7
+H2 HA H3 H7
+HT HJ H4 H8
+DT D4 DJ DA
+C3 C6 HQ HK
+C8 C9 SJ SK
+C7 D6 CK DK
+
+
+% PBN 2.1
+% EXPORT
+%Content-type: text/x-pbn; charset=UTF-8
+%Creator: xin2pbn.py
+%Created: Sun Apr  1 21:55:24 2018 +0200
+%BidAndCardSpacing Thin
+%BoardsPerPage 1
+%CardTableColors #008000,#ffffff,#aaaaaa
+%EventSpacing 0
+%Font:CardTable "Arial",11,400,0
+%Font:Commentary "Times New Roman",12,400,0
+%Font:Diagram "Times New Roman",12,400,0
+%Font:Event "Times New Roman",12,400,0
+%Font:FixedPitch "Courier New",10,400,0
+%Font:HandRecord "Arial",11,400,0
+%GutterSize 500,500
+%HtmlClubs entity,"https://bridgecomposer.com/suitimg/c.gif"
+%HtmlDiamonds entity,"https://bridgecomposer.com/suitimg/d.gif"
+%HtmlHearts entity,"https://bridgecomposer.com/suitimg/h.gif"
+%HtmlNavBar 0.75,#cfe2f3
+%HtmlSpades entity,"https://bridgecomposer.com/suitimg/s.gif"
+%Margins 1000,1000,1000,1000
+%PaperSize 1,0,0,2
+%ParaIndent 0
+%PipColors #000000,#ff0000,#ff0000,#000000
+%PipFont "Symbol","Symbol",2,0xAA,0xA9,0xA8,0xA7
+%ScoreTableColors #e6e6e6,#000000
+%SelectedBoard 0
+%ShowBoardLabels 2
+%ShowCardTable 2
+%TSTCustomSortOrder Default
+%TSTReport List
+%TSTReportOrder ByNumber
+%TSTReportShade Yes
+[Event "个人赛 第2轮 牌号 5/8"]
+[Site ""]
+[Date ""]
+[Board ""]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "N"]
+[Vulnerable "NS"]
+[Deal "N:J862.T9.962.KQT4 753.AJ3.T85.9865 AKQT.K87652.KQ7. 94.Q4.AJ43.AJ732"]
+[Scoring "620"]
+[Declarer "N"]
+[Contract "4S"]
+[Result "10"]
+[Auction "N"]
+Pass Pass 1H Pass
+1S Pass 4S Pass
+Pass Pass
+[Play "E"]
+D5 DK DA D6
+D8 DQ DJ D2
+S3 SA S4 S2
+S5 ST S9 SJ
+H3 HK H4 HT
+HJ H2 HQ H9
+DT D7 D4 D9
+C6 SQ C7 C4
+
+

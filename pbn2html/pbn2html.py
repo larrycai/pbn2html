@@ -12,6 +12,21 @@ from string import Template
 
 language="Chinese"
 
+html_template="""
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="Generator" content="pbn2html toolkit">
+    <title>Enjoy the bridge game</title>
+  </head>
+  <body class=bcbody>
+    <!-- Credit to BridgeComposer Version 5.83 (64 bit) - https://bridgecomposer.com/ -->
+    <div class=bcboard style="text-align: center">
+        $all
+  </body>
+</html>
+"""
 card_template="""
               <table class=bchand style="border-collapse: collapse; border-spacing: 0">
                 <tr class=bchand>
@@ -33,15 +48,6 @@ card_template="""
               </table>
             </td>
 """
-def html_card(cards):
-    src = Template(card_template)
-    all = {
-        "spade" : cards["S"],
-        "heart" : cards["H"],
-        "diamond" : cards["D"],
-        "club" : cards["C"]
-    }
-    return src.safe_substitute(all)
 
 board_template="""
               <table class=bcct style="width: 4em; height: 4em; border-collapse: collapse; font: 9pt Verdana, sans-serif; color: #ffffff; border: 1px solid #aaaaaa">
@@ -69,6 +75,17 @@ extra_template="""
 auction_template="""
           $auction
 """
+
+def html_card(cards):
+    src = Template(card_template)
+    all = {
+        "spade" : cards["S"],
+        "heart" : cards["H"],
+        "diamond" : cards["D"],
+        "club" : cards["C"]
+    }
+    return src.safe_substitute(all)
+
 def html_board(vulnerable, dealer):
     arrows={"S": "&darr;","W": "&larr;","N": "&uarr;","E": "&rarr;"}
     src = Template(board_template)
@@ -144,31 +161,43 @@ def html_auction(auction, section_auction):
     css += "</tr>\n"
     all = { "auction": css}
     return src.safe_substitute(all)
-    
+
 def pbn2html(pbn_file):
     all = {
         "generated" : "2020-12-01"
     }
     
+    # handle multiple pbn in one file
     pbnstr = open(pbn_file,encoding="utf-8" ).read()
-    tags, hands, section_auction = importPBN(pbnstr)
-    # print(tags, hands,section_auction)
-    all["title"] = tags["Event"]
-    all["north"] = html_card(hands["N"])
-    all["west"] = html_card(hands["W"])
-    all["east"] = html_card(hands["E"])
-    all["south"] = html_card(hands["S"])
-    all["board"] = html_board(tags["Vulnerable"],tags["Dealer"])
-    all["extra"] = html_extra(tags["Contract"],tags["Declarer"])
-    all["auction"] = html_auction(tags["Auction"], section_auction)
-    # hacked solution to check whether it is module or local
-    # > _: C:/Python36/Scripts/pbn2html
-    if "pbn2html" in os.environ.get("_"):
-        template = pkgutil.get_data(__name__,'template.html')
-        src = Template(template.decode('utf-8'))
-    else:
-        template = open("template.html", "r",encoding="utf-8").read()
-        src = Template(template)
+    delimiter="[Event"
+    pbns =  [delimiter+e for e in pbnstr.split(delimiter) if "Deal" in e]
+    result = ""
+    #print(pbns)
+    for pbn in pbns:
+        #print("hha", pbn)
+        tags, hands, section_auction = importPBN(pbn)
+    
+        # print(tags, hands,section_auction)
+        all["title"] = tags["Event"]
+        all["north"] = html_card(hands["N"])
+        all["west"] = html_card(hands["W"])
+        all["east"] = html_card(hands["E"])
+        all["south"] = html_card(hands["S"])
+        all["board"] = html_board(tags["Vulnerable"],tags["Dealer"])
+        all["extra"] = html_extra(tags["Contract"],tags["Declarer"])
+        all["auction"] = html_auction(tags["Auction"], section_auction)
+        # hacked solution to check whether it is module or local
+        # > _: C:/Python36/Scripts/pbn2html
+        if "pbn2html" in os.environ.get("_"):
+            template = pkgutil.get_data(__name__,'template.html')
+            src = Template(template.decode('utf-8'))
+        else:
+            template = open("template.html", "r",encoding="utf-8").read()
+            src = Template(template)
+        result += src.safe_substitute(all)
+        #print(len(result))
+    src = Template(html_template)
+    all = { "all": result }
     result = src.safe_substitute(all)
     output = os.path.splitext(pbn_file)[0]+'.html'
     with io.open(output, "w", encoding="utf-8") as text_file:

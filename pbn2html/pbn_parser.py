@@ -23,16 +23,20 @@ def importPBN(pbn):
     if 'Deal' not in tags:
         raise ParseError("Required tag 'Deal' not found")
     first, cards = tags['Deal'].split(":")
-    index = PLAYERINDEX[first.strip()]
+    index = PLAYERINDEX[first.strip()] - 1
+    #print(PLAYERINDEX)
+    #print(POSITION)
+    #print(Player.POSITION)
     order = Player.POSITION[index:] + Player.POSITION[:index]
+    # print(first,cards,index, order)
     hands = {}
     for player, hand in zip(order, cards.strip().split()):
+        # print("loop:", player,hand)
         hands[player] = {}
         for suit, suitcards in zip(SUIT, hand.split('.')):
             hands[player][suit] = ""
             for rank in suitcards:
                 card = Card(suit,CARDRANK[rank])
-                #hands[player].append(card)
                 if hands[player][suit] != "":
                     hands[player][suit] += " "
                 if rank == "T":
