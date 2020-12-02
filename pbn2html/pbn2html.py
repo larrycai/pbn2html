@@ -4,7 +4,10 @@ import os
 import io
 import sys
 import pkgutil
-from pbn_parser import importPBN
+if "pbn2html" in os.environ.get("_"):
+    from .pbn_parser import importPBN
+else:
+    from pbn_parser import importPBN
 from string import Template
 
 language="Chinese"

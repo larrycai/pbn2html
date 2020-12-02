@@ -4,8 +4,11 @@ https://github.com/alorenzen/DoubleDummy/blob/master/pbn_parser.py
 which comes from
 http://4coder.org/python-source-code/18/pybridge-0.3.0/pybridge/bridge/pbn.py.html
 """
-
-from game_state import *
+import os
+if "pbn2html" in os.environ.get("_"):
+    from .game_state import *
+else:
+    from game_state import *
 
 class ParseError(Exception):
     """Raised when PBN parser encounters an unexpected input."""
