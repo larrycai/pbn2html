@@ -12,15 +12,155 @@ from string import Template
 
 language="Chinese"
 
+card_template="""
+              <table class=bchand style="border-collapse: collapse; border-spacing: 0">
+                <tr class=bchand>
+                  <td class=bcpip style="font: 10pt Verdana, sans-serif; padding: 1px; padding-top: 0; padding-bottom: 0; width: 1em; text-align: center"><span class=bcspades>&spades;</span></td>
+                  <td class=bchand style="font: 10pt Verdana, sans-serif; padding: 1px; padding-top: 0; padding-bottom: 0">$spade</td>
+                </tr>
+                <tr class=bchand>
+                  <td class=bcpip style="font: 10pt Verdana, sans-serif; padding: 1px; padding-top: 0; padding-bottom: 0; width: 1em; text-align: center"><span class=bchearts style="color: red">&hearts;</span></td>
+                  <td class=bchand style="font: 10pt Verdana, sans-serif; padding: 1px; padding-top: 0; padding-bottom: 0">$heart</td>
+                </tr>
+                <tr class=bchand>
+                  <td class=bcpip style="font: 10pt Verdana, sans-serif; padding: 1px; padding-top: 0; padding-bottom: 0; width: 1em; text-align: center"><span class=bcdiams style="color: red">&diams;</span></td>
+                  <td class=bchand style="font: 10pt Verdana, sans-serif; padding: 1px; padding-top: 0; padding-bottom: 0">$diamond</td>
+                </tr>
+                <tr class=bchand>
+                  <td class=bcpip style="font: 10pt Verdana, sans-serif; padding: 1px; padding-top: 0; padding-bottom: 0; width: 1em; text-align: center"><span class=bcclubs>&clubs;</span></td>
+                  <td class=bchand style="font: 10pt Verdana, sans-serif; padding: 1px; padding-top: 0; padding-bottom: 0">$club</td>
+                </tr>
+              </table>
+            </td>
+"""
+def html_card(cards):
+    src = Template(card_template)
+    all = {
+        "spade" : cards["S"],
+        "heart" : cards["H"],
+        "diamond" : cards["D"],
+        "club" : cards["C"]
+    }
+    return src.safe_substitute(all)
+
+board_template="""
+              <table class=bcct style="width: 4em; height: 4em; border-collapse: collapse; font: 9pt Verdana, sans-serif; color: #ffffff; border: 1px solid #aaaaaa">
+                <tr class=bcct1>
+                  <td class=bcct1 style="text-align: center; vertical-align: text-top; padding: 1px"></td>
+                  <td class=bcct1 style="text-align: center; vertical-align: text-top; padding: 1px;background-color: $ns_vulnerable;">北</td>
+                  <td class=bcct1 style="text-align: center; vertical-align: text-top; padding: 1px"></td>
+                </tr>
+                <tr class=bcct2>
+                  <td class=bcct2a style="text-align: left; vertical-align: text-top; padding: 1px; background-color: $ew_vulnerable;">西</td>
+                  <td class=bcct2b style="text-align: center; padding: 1px; color: black;">$dealer</td>
+                  <td class=bcct2c style="text-align: right; vertical-align: text-top; padding: 1px; background-color: $ew_vulnerable;">东</td>
+                </tr>
+                <tr class=bcct3>
+                  <td class=bcct3 style="text-align: center; vertical-align: text-top; padding: 1px"></td>
+                  <td class=bcct3 style="text-align: center; vertical-align: text-top; padding: 1px; background-color: $ns_vulnerable;">南</td>
+                  <td class=bcct3 style="text-align: center; vertical-align: text-top; padding: 1px"></td>
+                </tr>
+              </table>
+"""
+extra_template="""
+            <td class=bchd3 style="padding: 1px; font: 10pt Verdana, sans-serif; padding: 1px; text-align: left; vertical-align: bottom;">定约: $declarer $contract</td>
+"""
+
+auction_template="""
+          $auction
+"""
+def html_board(vulnerable, dealer):
+    arrows={"S": "&darr;","W": "&larr;","N": "&uarr;","E": "&rarr;"}
+    src = Template(board_template)
+    
+    NONE_COLOR="green"
+    VULNERABLE_COLOR="red"
+
+    all = {}
+    if vulnerable == "NS":
+        all["ns_vulnerable"]= VULNERABLE_COLOR
+        all["ew_vulnerable"]= NONE_COLOR
+    elif vulnerable == "EW":
+        all["ew_vulnerable"]= VULNERABLE_COLOR
+        all["ns_vulnerable"]= NONE_COLOR
+    elif vulnerable == "NONE":
+        all["ew_vulnerable"]= NONE_COLOR
+        all["ns_vulnerable"]= NONE_COLOR
+    else:
+        all["ew_vulnerable"]= VULNERABLE_COLOR
+        all["ns_vulnerable"]= VULNERABLE_COLOR
+    all["dealer"] = arrows[dealer]
+    
+    return src.safe_substitute(all)
+
+def bid_css(contract):
+    rank = contract[0]
+    suit = contract[1:]
+    css = rank
+    suit_css = {
+        'S': "&nbsp;<span class=bcspades>&spades;</span>",
+        "H": "&nbsp;<span class=bchearts style='color: red'>&hearts;</span>",
+        "D": "&nbsp;<span class=bcdiams style='color: red'>&diams;</span>",
+        "C": "&nbsp;<span class=bcclubs>&clubs;</span>",
+        "NT": "&nbsp;NT",
+    }
+    if contract in [ "AP", "Pass", "X", "XX" ]:
+        css = contract
+    else:
+        css += suit_css[suit]
+    return css
+    
+def html_extra(contract, declarer):
+    src = Template(extra_template)
+    css = bid_css(contract)
+    trans_declarer={"S": "南","W": "西","N": "北","E": "东"}
+
+    all = { "declarer": trans_declarer[declarer], "contract" : css}
+    return src.safe_substitute(all)
+
+def html_auction(auction, section_auction):
+    src = Template(auction_template)
+    # need insert empty cell based on auction
+    position="WNES" 
+    empty_cells = position.index(auction)
+
+    # handle ==1==, 6D?, 6D!
+    filtered_auction = [x for x in section_auction.split() if not x.startswith("=")]
+    # print(filtered_auction)
+    css = "<tr class=bcauction>"
+    col = 0
+    for empty in range(empty_cells):
+        css += "<td class=bcauction style='font: 10pt Verdana, sans-serif; padding: 1px; text-align: left; white-space: nowrap'></td>\n"
+        col += 1
+    for one in filtered_auction:
+        # print("aution:", one)
+        one = one.replace("!", '').replace("?","")
+        css +="<td class=bcauction style='font: 10pt Verdana, sans-serif; padding: 1px; text-align: left; white-space: nowrap'>%s</td>\n" %  bid_css(one)
+        if col == 3:
+            col = 0
+            css += "</tr>\n"
+        else:
+            col += 1
+    css += "</tr>\n"
+    all = { "auction": css}
+    return src.safe_substitute(all)
+    
 def pbn2html(pbn_file):
     all = {
         "generated" : "2020-12-01"
     }
     
     pbnstr = open(pbn_file,encoding="utf-8" ).read()
-    g = importPBN(pbnstr)
-    
-    template=""
+    tags, hands, section_auction = importPBN(pbnstr)
+    # print(tags, hands,section_auction)
+    all["title"] = tags["Event"]
+    all["north"] = html_card(hands["N"])
+    all["west"] = html_card(hands["W"])
+    all["east"] = html_card(hands["E"])
+    all["south"] = html_card(hands["S"])
+    all["board"] = html_board(tags["Vulnerable"],tags["Dealer"])
+    all["extra"] = html_extra(tags["Contract"],tags["Declarer"])
+    all["auction"] = html_auction(tags["Auction"], section_auction)
     # hacked solution to check whether it is module or local
     # > _: C:/Python36/Scripts/pbn2html
     if "pbn2html" in os.environ.get("_"):

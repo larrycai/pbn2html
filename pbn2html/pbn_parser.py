@@ -19,7 +19,7 @@ def importPBN(pbn):
     POSITION = dict(zip('NESW',Player.POSITION))
     PLAYERINDEX = dict(zip('NESW',range(1,5)))
     tags, sections, notes = parsePBN(pbn)
-    print(tags,sections)
+    #print(tags,sections)
     if 'Deal' not in tags:
         raise ParseError("Required tag 'Deal' not found")
     first, cards = tags['Deal'].split(":")
@@ -27,12 +27,20 @@ def importPBN(pbn):
     order = Player.POSITION[index:] + Player.POSITION[:index]
     hands = {}
     for player, hand in zip(order, cards.strip().split()):
-        hands[player] = []
+        hands[player] = {}
         for suit, suitcards in zip(SUIT, hand.split('.')):
+            hands[player][suit] = ""
             for rank in suitcards:
                 card = Card(suit,CARDRANK[rank])
-                hands[player].append(card)
-    # print(hands)
+                #hands[player].append(card)
+                if hands[player][suit] != "":
+                    hands[player][suit] += " "
+                if rank == "T":
+                    rank ="10"
+                hands[player][suit] += rank
+            if hands[player][suit] == "":
+                hands[player][suit] = "-"
+    #print(hands)
     #print((sections['Optimumresulttable'].split('\n'))[1:20])
     #results = filter(lambda x: x[1] == 'NT',map(lambda x: x.strip().split(),sections['Optimumresulttable'].split('\n'))[1:20])
     #expected = {}
@@ -42,7 +50,7 @@ def importPBN(pbn):
     #    if not deal.isValidDeal():
     #        raise ParseError("Deal does not validate")
     #    expected[player] = (deal,tricks)
-    return tags, hands
+    return tags, hands, sections["Auction"]
 
 def parsePBN(pbn):
     """Parses the given PBN string and extracts:
