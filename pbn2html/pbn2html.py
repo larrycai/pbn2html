@@ -69,7 +69,7 @@ board_template="""
               </table>
 """
 extra_template="""
-            <td class=bchd3 style="padding: 1px; font: 10pt Verdana, sans-serif; padding: 1px; text-align: left; vertical-align: bottom;">定约: $declarer $contract</td>
+            <td class=bchd3 style="padding: 1px; font: 10pt Verdana, sans-serif; padding: 1px; text-align: left; vertical-align: top;">定约: $declarer $contract</td>
 """
 
 auction_template="""
@@ -114,12 +114,13 @@ def bid_css(contract):
     rank = contract[0]
     suit = contract[1:]
     css = rank
+    space="<span class=style='font: 10pt Times, serif'>&thinsp;</span>"
     suit_css = {
-        'S': "&nbsp;<span class=bcspades style='font: 10pt Verdana, sans-serif;'>&spades;</span>",
-        "H": "&nbsp;<span class=bchearts style='color: red; font: 10pt Verdana, sans-serif;'>&hearts;</span>",
-        "D": "&nbsp;<span class=bcdiams style='color: red; font: 10pt Verdana, sans-serif;'>&diams;</span>",
-        "C": "&nbsp;<span class=bcclubs style='font: 10pt Verdana, sans-serif;'>&clubs;</span>",
-        "NT": "&nbsp;NT",
+        'S':  space + "<span class=bcspades style='font: 10pt Verdana, sans-serif;'>&spades;</span>",
+        "H":  space + "<span class=bchearts style='color: red; font: 10pt Verdana, sans-serif;'>&hearts;</span>",
+        "D":  space + "<span class=bcdiams style='color: red; font: 10pt Verdana, sans-serif;'>&diams;</span>",
+        "C":  space + "<span class=bcclubs style='font: 10pt Verdana, sans-serif;'>&clubs;</span>",
+        "NT": space + "NT",
     }
     if contract in [ "AP", "Pass", "X", "XX" ]:
         css = contract
@@ -147,12 +148,12 @@ def html_auction(auction, section_auction):
     css = "<tr class=bcauction>"
     col = 0
     for empty in range(empty_cells):
-        css += "<td class=bcauction style='font: 10pt Times, serif; padding: 1px; text-align: left; white-space: nowrap'></td>\n"
+        css += "<td class=bcauction style='padding: 1px; text-align: left; white-space: nowrap'></td>\n"
         col += 1
     for one in filtered_auction:
         # print("aution:", one)
         one = one.replace("!", '').replace("?","")
-        css +="<td class=bcauction style='font: 10pt Times, serif; padding: 1px; text-align: left; white-space: nowrap'>%s</td>\n" %  bid_css(one)
+        css +="<td class=bcauction style='padding: 1px; text-align: left; white-space: nowrap'>%s</td>\n" %  bid_css(one)
         if col == 3:
             col = 0
             css += "</tr>\n"
