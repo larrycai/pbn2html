@@ -114,7 +114,7 @@ def bid_css(contract):
     rank = contract[0]
     suit = contract[1:]
     css = rank
-    space="<span class=style='font: 10pt Times, serif'>&thinsp;</span>"
+    space="<span style='font: 10pt Times, serif'>&thinsp;</span>"
     suit_css = {
         'S':  space + "<span class=bcspades style='font: 10pt Verdana, sans-serif;'>&spades;</span>",
         "H":  space + "<span class=bchearts style='color: red; font: 10pt Verdana, sans-serif;'>&hearts;</span>",

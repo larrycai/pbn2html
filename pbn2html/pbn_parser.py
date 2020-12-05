@@ -43,7 +43,7 @@ def importPBN(pbn):
                     rank ="10"
                 hands[player][suit] += rank
             if hands[player][suit] == "":
-                hands[player][suit] = "-"
+                hands[player][suit] = "—"
     #print(hands)
     #print((sections['Optimumresulttable'].split('\n'))[1:20])
     #results = filter(lambda x: x[1] == 'NT',map(lambda x: x.strip().split(),sections['Optimumresulttable'].split('\n'))[1:20])
