@@ -50,7 +50,7 @@ card_template="""
 """
 
 board_template="""
-              <table class=bcct style="width: 4em; height: 4em; border-collapse: collapse; font: 9pt Verdana, sans-serif; color: #ffffff; border: 1px solid #aaaaaa">
+              <table class=bcct style="width: 4em; height: 4em; border-collapse: collapse; font: 10pt @微软雅黑, sans-serif; color: #ffffff; border: 1px solid #aaaaaa">
                 <tr class=bcct1>
                   <td class=bcct1 style="text-align: center; vertical-align: text-top; padding: 1px"></td>
                   <td class=bcct1 style="text-align: center; vertical-align: text-top; padding: 1px;background-color: $ns_vulnerable;">北</td>
@@ -115,10 +115,10 @@ def bid_css(contract):
     suit = contract[1:]
     css = rank
     suit_css = {
-        'S': "&nbsp;<span class=bcspades>&spades;</span>",
-        "H": "&nbsp;<span class=bchearts style='color: red'>&hearts;</span>",
-        "D": "&nbsp;<span class=bcdiams style='color: red'>&diams;</span>",
-        "C": "&nbsp;<span class=bcclubs>&clubs;</span>",
+        'S': "&nbsp;<span class=bcspades style='font: 10pt Verdana, sans-serif;'>&spades;</span>",
+        "H": "&nbsp;<span class=bchearts style='color: red; font: 10pt Verdana, sans-serif;'>&hearts;</span>",
+        "D": "&nbsp;<span class=bcdiams style='color: red; font: 10pt Verdana, sans-serif;'>&diams;</span>",
+        "C": "&nbsp;<span class=bcclubs style='font: 10pt Verdana, sans-serif;'>&clubs;</span>",
         "NT": "&nbsp;NT",
     }
     if contract in [ "AP", "Pass", "X", "XX" ]:
@@ -147,12 +147,12 @@ def html_auction(auction, section_auction):
     css = "<tr class=bcauction>"
     col = 0
     for empty in range(empty_cells):
-        css += "<td class=bcauction style='font: 10pt Verdana, sans-serif; padding: 1px; text-align: left; white-space: nowrap'></td>\n"
+        css += "<td class=bcauction style='font: 10pt Times, serif; padding: 1px; text-align: left; white-space: nowrap'></td>\n"
         col += 1
     for one in filtered_auction:
         # print("aution:", one)
         one = one.replace("!", '').replace("?","")
-        css +="<td class=bcauction style='font: 10pt Verdana, sans-serif; padding: 1px; text-align: left; white-space: nowrap'>%s</td>\n" %  bid_css(one)
+        css +="<td class=bcauction style='font: 10pt Times, serif; padding: 1px; text-align: left; white-space: nowrap'>%s</td>\n" %  bid_css(one)
         if col == 3:
             col = 0
             css += "</tr>\n"

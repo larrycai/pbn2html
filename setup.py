@@ -14,7 +14,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="pbn2html", # Replace with your own username
-    version="0.0.8",
+    version="0.0.9",
     author="Larry Cai",
 	author_email='larry.caiyu@gmail.com',
 	url='https://github.com/larrycai/pbn2html',
