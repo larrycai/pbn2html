@@ -116,10 +116,10 @@ def bid_css(contract):
     css = rank
     space="<span style='font: 10pt Times, serif'>&thinsp;</span>"
     suit_css = {
-        'S':  space + "<span class=bcspades style='font: 10pt Verdana, sans-serif;'>&spades;</span>",
+        'S':  space + "<span class=bcspades style='color:black;font: 10pt Verdana, sans-serif;'>&spades;</span>",
         "H":  space + "<span class=bchearts style='color: red; font: 10pt Verdana, sans-serif;'>&hearts;</span>",
         "D":  space + "<span class=bcdiams style='color: red; font: 10pt Verdana, sans-serif;'>&diams;</span>",
-        "C":  space + "<span class=bcclubs style='font: 10pt Verdana, sans-serif;'>&clubs;</span>",
+        "C":  space + "<span class=bcclubs style='color:black;font: 10pt Verdana, sans-serif;'>&clubs;</span>",
         "NT": space + "NT",
     }
     if contract in [ "AP", "Pass", "X", "XX" ]:
