@@ -30,7 +30,7 @@ html_template="""
 card_template="""
               <table class=bchand style="border-collapse: collapse; border-spacing: 0">
                 <tr class=bchand>
-                  <td class=bcpip style="font: 10pt Verdana, sans-serif; padding: 1px; padding-top: 0; padding-bottom: 0; width: 1em; text-align: center"><span class=bcspades>&spades;</span></td>
+                  <td class=bcpip style="font: 10pt Verdana, sans-serif; padding: 1px; padding-top: 0; padding-bottom: 0; width: 1em; text-align: center"><span class=bcspades style="color: black">&spades;</span></td>
                   <td class=bchand style="font: 10pt Verdana, sans-serif; padding: 1px; padding-top: 0; padding-bottom: 0">$spade</td>
                 </tr>
                 <tr class=bchand>
@@ -42,7 +42,7 @@ card_template="""
                   <td class=bchand style="font: 10pt Verdana, sans-serif; padding: 1px; padding-top: 0; padding-bottom: 0">$diamond</td>
                 </tr>
                 <tr class=bchand>
-                  <td class=bcpip style="font: 10pt Verdana, sans-serif; padding: 1px; padding-top: 0; padding-bottom: 0; width: 1em; text-align: center"><span class=bcclubs>&clubs;</span></td>
+                  <td class=bcpip style="font: 10pt Verdana, sans-serif; padding: 1px; padding-top: 0; padding-bottom: 0; width: 1em; text-align: center"><span class=bcclubs style="color: black">&clubs;</span></td>
                   <td class=bchand style="font: 10pt Verdana, sans-serif; padding: 1px; padding-top: 0; padding-bottom: 0">$club</td>
                 </tr>
               </table>
