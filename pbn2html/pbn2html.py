@@ -127,10 +127,32 @@ def bid_css(contract):
     else:
         css += suit_css[suit]
     return css
-    
+
+def contract_css(contract):
+    rank = contract[0]
+    suit = double = ""
+    x = contract.find("X")
+    if x == -1: # no x or xx
+        suit = contract[1:]
+    else:
+        suit = contract[1:x]
+        double = contract[x:]
+    css = rank
+    space="<span style='font: 10pt Times, serif'>&thinsp;</span>"
+    suit_css = {
+        'S':  space + "<span class=bcspades style='color:black;font: 10pt Verdana, sans-serif;'>&spades;</span>",
+        "H":  space + "<span class=bchearts style='color: red; font: 10pt Verdana, sans-serif;'>&hearts;</span>",
+        "D":  space + "<span class=bcdiams style='color: red; font: 10pt Verdana, sans-serif;'>&diams;</span>",
+        "C":  space + "<span class=bcclubs style='color:black;font: 10pt Verdana, sans-serif;'>&clubs;</span>",
+        "NT": space + "NT",
+    }
+    css += suit_css[suit] + double.lower()
+
+    return css
+
 def html_extra(contract, declarer):
     src = Template(extra_template)
-    css = bid_css(contract)
+    css = contract_css(contract)
     trans_declarer={"S": "南","W": "西","N": "北","E": "东"}
 
     all = { "declarer": trans_declarer[declarer], "contract" : css}
@@ -219,3 +241,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+
