@@ -4,6 +4,10 @@ import os
 import io
 import sys
 import pkgutil
+
+import pkg_resources  # part of setuptools
+version = pkg_resources.require("pbn2html")[0].version
+
 if "pbn2html" in os.environ.get("_"):
     from .pbn_parser import importPBN
 else:
@@ -20,6 +24,10 @@ html_template="""
     <meta name="Generator" content="pbn2html toolkit">
     <title>Enjoy the bridge game</title>
   </head>
+  <h2>Introduction</h2>
+  <p>this is designed to be used (copy/paste) for Microsoft Word (Chinese) directly</p>
+  <p>Designed by Larry Cai and produced by <a href="https://pypi.org/project/pbn2html/">pbn2html</a>, version $version</p>
+  <p>Credit to <a href="https://bridgecomposer.com/">BridgeComposer Version 5.83 (64 bit)</a></p>
   <body class=bcbody>
     <!-- Credit to BridgeComposer Version 5.83 (64 bit) - https://bridgecomposer.com/ -->
     <div class=bcboard style="text-align: center">
@@ -50,7 +58,7 @@ card_template="""
 """
 
 board_template="""
-              <table class=bcct style="width: 4em; height: 4em; border-collapse: collapse; font: 10pt @微软雅黑, sans-serif; color: #ffffff; border: 1px solid #aaaaaa">
+              <table class=bcct style="width: 4em; height: 4em; border-collapse: collapse; font: 10pt simsun, sans-serif; color: #ffffff; border: 1px solid #aaaaaa">
                 <tr class=bcct1>
                   <td class=bcct1 style="text-align: center; vertical-align: text-top; padding: 1px"></td>
                   <td class=bcct1 style="text-align: center; vertical-align: text-top; padding: 1px;background-color: $ns_vulnerable;">北</td>
@@ -90,8 +98,8 @@ def html_board(vulnerable, dealer):
     arrows={"S": "&darr;","W": "&larr;","N": "&uarr;","E": "&rarr;"}
     src = Template(board_template)
     
-    NONE_COLOR="green"
-    VULNERABLE_COLOR="red"
+    NONE_COLOR="#93C47D"
+    VULNERABLE_COLOR="#E06666"
 
     all = {}
     if vulnerable == "NS":
@@ -220,7 +228,7 @@ def pbn2html(pbn_file):
         result += src.safe_substitute(all)
         #print(len(result))
     src = Template(html_template)
-    all = { "all": result }
+    all = { "all": result, "version": version }
     result = src.safe_substitute(all)
     output = os.path.splitext(pbn_file)[0]+'.html'
     with io.open(output, "w", encoding="utf-8") as text_file:
