@@ -8,7 +8,7 @@ import pkgutil
 import pkg_resources  # part of setuptools
 version = pkg_resources.require("pbn2html")[0].version
 
-from .pbn_parser import importPBN
+from pbn_parser import importPBN
 
 from string import Template
 
@@ -53,6 +53,11 @@ card_template="""
                 </tr>
               </table>
             </td>
+"""
+
+card_empty_template="""
+    <table class=bchand style="border-collapse: collapse; border-spacing: 0">
+    </table>
 """
 
 board_template="""
@@ -256,17 +261,33 @@ def pbn_html_auction(pbn):
     result = src.safe_substitute(all)
     return result
 
-def pbn_html_deal(pbn):
+def pbn_html_deal(pbn, cards="NESW"):
     all = {}
     tags = pbn["tags"]
     hands = pbn["hands"]
+    empty_hand = card_empty_template
+    # print(hands["N"])
+
     all["north"] = html_card(hands["N"])
     all["west"] = html_card(hands["W"])
     all["east"] = html_card(hands["E"])
     all["south"] = html_card(hands["S"])
+    for card in "NESW":
+        if card not in cards:
+            if card == "N":
+                all["north"] = empty_hand
+            if card == "W":
+                all["west"] = empty_hand
+            if card == "E":
+                all["east"] = empty_hand
+            if card == "S":
+                all["south"] = empty_hand
+
     all["board"] = html_board(tags["Vulnerable"],tags["Dealer"])
     all["extra"] = html_extra(tags["Contract"],tags["Declarer"])
     template = pkgutil.get_data(__name__,'deal_template.html')
+    #template = open("deal_template.html", "r", encoding="utf-8").read()
+    #src = Template(template)
     src = Template(template.decode('utf-8'))
     result = src.safe_substitute(all)
     return result
@@ -294,9 +315,13 @@ def main():
         param = sys.argv[1:]
         if param[0].endswith(".pbn"):
             pbn2html(param[0])
-            #pbn = get_from_pbn_file(param[0])
+            pbn = get_from_pbn_file(param[0])
             #print(pbn_html_all(pbn))
             #print(pbn_html_auction(pbn))
+            
+            #print(pbn_html_deal(pbn, cards="NS"))
+            #print(pbn_html_deal(pbn, cards="EW"))
+            #print(pbn_html_deal(pbn, cards="NEWS"))
             #print(pbn_html_deal(pbn))
         else:
             print("pbn2html.py <file.pbn>")
