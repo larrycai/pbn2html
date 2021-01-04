@@ -197,7 +197,7 @@ def pbn2html(pbn_file):
     all = {
         "generated" : "2020-12-01"
     }
-    
+
     # handle multiple pbn in one file
     pbnstr = open(pbn_file,encoding="utf-8" ).read()
     delimiter="[Event"
@@ -235,6 +235,72 @@ def pbn2html(pbn_file):
         print("write to file %s" % output)
         text_file.write(result)
 
+def get_from_pbn(pbn):
+    tags, hands, section_auction = importPBN(pbn)
+    pbn = {
+        "tags": tags,
+        "hands": hands,
+        "section_auction" : section_auction
+    }
+    return pbn
+
+def get_from_pbn_file(pbn_file):
+    pbn = open(pbn_file,encoding="utf-8" ).read()
+    return get_from_pbn(pbn)
+
+def pbn_html_auction(pbn):
+    all = {}
+    tags = pbn["tags"]
+    section_auction = pbn["section_auction"]
+    all["auction"] = html_auction(tags["Auction"], section_auction)
+    if "pbn2html" in os.environ.get("_"):
+        template = pkgutil.get_data(__name__,'auction_template.html')
+        src = Template(template.decode('utf-8'))
+    else:
+        template = open("auction_template.html", "r",encoding="utf-8").read()
+        src = Template(template)
+    result = src.safe_substitute(all)
+    return result
+
+def pbn_html_deal(pbn):
+    all = {}
+    tags = pbn["tags"]
+    hands = pbn["hands"]
+    all["north"] = html_card(hands["N"])
+    all["west"] = html_card(hands["W"])
+    all["east"] = html_card(hands["E"])
+    all["south"] = html_card(hands["S"])
+    all["board"] = html_board(tags["Vulnerable"],tags["Dealer"])
+    all["extra"] = html_extra(tags["Contract"],tags["Declarer"])
+    if "pbn2html" in os.environ.get("_"):
+        template = pkgutil.get_data(__name__,'deal_template.html')
+        src = Template(template.decode('utf-8'))
+    else:
+        template = open("deal_template.html", "r",encoding="utf-8").read()
+        src = Template(template)
+    result = src.safe_substitute(all)
+    return result
+
+def pbn_html_all(pbn):
+    all = {}
+    tags = pbn["tags"]
+    hands = pbn["hands"]
+    section_auction = pbn["section_auction"]
+    all["north"] = html_card(hands["N"])
+    all["west"] = html_card(hands["W"])
+    all["east"] = html_card(hands["E"])
+    all["south"] = html_card(hands["S"])
+    all["board"] = html_board(tags["Vulnerable"],tags["Dealer"])
+    all["extra"] = html_extra(tags["Contract"],tags["Declarer"])
+    all["auction"] = html_auction(tags["Auction"], section_auction)
+    if "pbn2html" in os.environ.get("_"):
+        template = pkgutil.get_data(__name__,'all_template.html')
+        src = Template(template.decode('utf-8'))
+    else:
+        template = open("all_template.html", "r",encoding="utf-8").read()
+        src = Template(template)
+    result = src.safe_substitute(all)
+    return result
 
 def main():
     # print(sys.argv)
@@ -242,6 +308,10 @@ def main():
         param = sys.argv[1:]
         if param[0].endswith(".pbn"):
             pbn2html(param[0])
+            #pbn = get_from_pbn_file(param[0])
+            #print(pbn_html_all(pbn))
+            #print(pbn_html_auction(pbn))
+            #print(pbn_html_deal(pbn))
         else:
             print("pbn2html.py <file.pbn>")
     else:
