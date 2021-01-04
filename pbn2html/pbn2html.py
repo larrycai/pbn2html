@@ -8,10 +8,8 @@ import pkgutil
 import pkg_resources  # part of setuptools
 version = pkg_resources.require("pbn2html")[0].version
 
-if "pbn2html" in os.environ.get("_"):
-    from .pbn_parser import importPBN
-else:
-    from pbn_parser import importPBN
+from .pbn_parser import importPBN
+
 from string import Template
 
 language="Chinese"
@@ -253,12 +251,8 @@ def pbn_html_auction(pbn):
     tags = pbn["tags"]
     section_auction = pbn["section_auction"]
     all["auction"] = html_auction(tags["Auction"], section_auction)
-    if "pbn2html" in os.environ.get("_"):
-        template = pkgutil.get_data(__name__,'auction_template.html')
-        src = Template(template.decode('utf-8'))
-    else:
-        template = open("auction_template.html", "r",encoding="utf-8").read()
-        src = Template(template)
+    template = pkgutil.get_data(__name__,'auction_template.html')
+    src = Template(template.decode('utf-8'))
     result = src.safe_substitute(all)
     return result
 
@@ -272,12 +266,8 @@ def pbn_html_deal(pbn):
     all["south"] = html_card(hands["S"])
     all["board"] = html_board(tags["Vulnerable"],tags["Dealer"])
     all["extra"] = html_extra(tags["Contract"],tags["Declarer"])
-    if "pbn2html" in os.environ.get("_"):
-        template = pkgutil.get_data(__name__,'deal_template.html')
-        src = Template(template.decode('utf-8'))
-    else:
-        template = open("deal_template.html", "r",encoding="utf-8").read()
-        src = Template(template)
+    template = pkgutil.get_data(__name__,'deal_template.html')
+    src = Template(template.decode('utf-8'))
     result = src.safe_substitute(all)
     return result
 
@@ -293,12 +283,8 @@ def pbn_html_all(pbn):
     all["board"] = html_board(tags["Vulnerable"],tags["Dealer"])
     all["extra"] = html_extra(tags["Contract"],tags["Declarer"])
     all["auction"] = html_auction(tags["Auction"], section_auction)
-    if "pbn2html" in os.environ.get("_"):
-        template = pkgutil.get_data(__name__,'all_template.html')
-        src = Template(template.decode('utf-8'))
-    else:
-        template = open("all_template.html", "r",encoding="utf-8").read()
-        src = Template(template)
+    template = pkgutil.get_data(__name__,'all_template.html')
+    src = Template(template.decode('utf-8'))
     result = src.safe_substitute(all)
     return result
 
