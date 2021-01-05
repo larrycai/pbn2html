@@ -8,7 +8,7 @@ import pkgutil
 import pkg_resources  # part of setuptools
 version = pkg_resources.require("pbn2html")[0].version
 
-from pbn_parser import importPBN
+from .pbn_parser import importPBN
 
 from string import Template
 
@@ -81,6 +81,10 @@ board_template="""
 """
 extra_template="""
             <td class=bchd3 style="padding: 1px; font: 10pt Verdana, sans-serif; padding: 1px; text-align: left; vertical-align: top;">定约: $declarer $contract</td>
+"""
+
+info_template="""
+            <td class=bchd3 style="padding: 1px; font: 10pt Verdana, sans-serif; padding: 1px; text-align: left; vertical-align: $valign;">$info</td>
 """
 
 auction_template="""
@@ -169,6 +173,16 @@ def html_extra(contract, declarer):
     all = { "declarer": trans_declarer[declarer], "contract" : css}
     return src.safe_substitute(all)
 
+def html_info(info, bottom=False):
+    src = Template(info_template)
+    info = info.replace("&","<br />")
+    if bottom:
+        valign = "bottom"
+    else:
+        valign = "top"
+    all = { "info": info, "valign" : valign}
+    return src.safe_substitute(all)
+
 def html_auction(auction, section_auction):
     src = Template(auction_template)
     # need insert empty cell based on auction
@@ -245,6 +259,7 @@ def get_from_pbn(pbn):
         "hands": hands,
         "section_auction" : section_auction
     }
+    print(hands)
     return pbn
 
 def get_from_pbn_file(pbn_file):
@@ -261,7 +276,7 @@ def pbn_html_auction(pbn):
     result = src.safe_substitute(all)
     return result
 
-def pbn_html_deal(pbn, cards="NESW"):
+def pbn_html_deal(pbn, cards="NESW", ll="", ul="", ur=""):
     all = {}
     tags = pbn["tags"]
     hands = pbn["hands"]
@@ -284,11 +299,17 @@ def pbn_html_deal(pbn, cards="NESW"):
                 all["south"] = empty_hand
 
     all["board"] = html_board(tags["Vulnerable"],tags["Dealer"])
-    all["extra"] = html_extra(tags["Contract"],tags["Declarer"])
+    if ul == "":
+        all["ul"] = html_extra(tags["Contract"],tags["Declarer"])
+    else:
+        all["ul"] = html_info(ul)
+    all["ll"] = html_info(ll, bottom=True)
+    all["ur"] = html_info(ur)
+
     template = pkgutil.get_data(__name__,'deal_template.html')
+    src = Template(template.decode('utf-8'))
     #template = open("deal_template.html", "r", encoding="utf-8").read()
     #src = Template(template)
-    src = Template(template.decode('utf-8'))
     result = src.safe_substitute(all)
     return result
 
@@ -322,7 +343,7 @@ def main():
             #print(pbn_html_deal(pbn, cards="NS"))
             #print(pbn_html_deal(pbn, cards="EW"))
             #print(pbn_html_deal(pbn, cards="NEWS"))
-            #print(pbn_html_deal(pbn))
+            #print(pbn_html_deal(pbn, ul=" ", ur="群组赛1209&牌号 4/8", ll="NS 4/12&EW 0"))
         else:
             print("pbn2html.py <file.pbn>")
     else:
