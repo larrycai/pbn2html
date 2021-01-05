@@ -259,7 +259,7 @@ def get_from_pbn(pbn):
         "hands": hands,
         "section_auction" : section_auction
     }
-    print(hands)
+    #print(hands)
     return pbn
 
 def get_from_pbn_file(pbn_file):
