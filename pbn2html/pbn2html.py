@@ -64,23 +64,23 @@ board_template="""
               <table class=bcct style="width: 4em; height: 4em; border-collapse: collapse; font: 10pt simsun, sans-serif; color: #ffffff; border: 1px solid #aaaaaa">
                 <tr class=bcct1>
                   <td class=bcct1 style="text-align: center; vertical-align: text-top; padding: 1px"></td>
-                  <td class=bcct1 style="text-align: center; vertical-align: text-top; padding: 1px;background-color: $ns_vulnerable;">北</td>
+                  <td class=bcct1 style="text-align: center; vertical-align: text-top; padding: 1px;background-color: $ns_vulnerable;">N</td>
                   <td class=bcct1 style="text-align: center; vertical-align: text-top; padding: 1px"></td>
                 </tr>
                 <tr class=bcct2>
-                  <td class=bcct2a style="text-align: left; vertical-align: text-top; padding: 1px; background-color: $ew_vulnerable;">西</td>
+                  <td class=bcct2a style="text-align: left; vertical-align: text-top; padding: 1px; background-color: $ew_vulnerable;">W</td>
                   <td class=bcct2b style="text-align: center; padding: 1px; color: black;">$dealer</td>
-                  <td class=bcct2c style="text-align: right; vertical-align: text-top; padding: 1px; background-color: $ew_vulnerable;">东</td>
+                  <td class=bcct2c style="text-align: right; vertical-align: text-top; padding: 1px; background-color: $ew_vulnerable;">E</td>
                 </tr>
                 <tr class=bcct3>
                   <td class=bcct3 style="text-align: center; vertical-align: text-top; padding: 1px"></td>
-                  <td class=bcct3 style="text-align: center; vertical-align: text-top; padding: 1px; background-color: $ns_vulnerable;">南</td>
+                  <td class=bcct3 style="text-align: center; vertical-align: text-top; padding: 1px; background-color: $ns_vulnerable;">S</td>
                   <td class=bcct3 style="text-align: center; vertical-align: text-top; padding: 1px"></td>
                 </tr>
               </table>
 """
 extra_template="""
-            <td class=bchd3 style="padding: 1px; font: 10pt Verdana, sans-serif; padding: 1px; text-align: left; vertical-align: top;">定约: $declarer $contract</td>
+            <td class=bchd3 style="padding: 1px; font: 10pt Verdana, sans-serif; padding: 1px; text-align: left; vertical-align: top;">Contract: $declarer $contract</td>
 """
 
 info_template="""
@@ -168,7 +168,8 @@ def contract_css(contract):
 def html_extra(contract, declarer):
     src = Template(extra_template)
     css = contract_css(contract)
-    trans_declarer={"S": "南","W": "西","N": "北","E": "东"}
+    # trans_declarer={"S": "南","W": "西","N": "北","E": "东"}
+    trans_declarer={"S": "S","W": "W","N": "N","E": "E"}
 
     all = { "declarer": trans_declarer[declarer], "contract" : css}
     return src.safe_substitute(all)
