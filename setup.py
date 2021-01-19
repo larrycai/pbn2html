@@ -25,7 +25,7 @@ setuptools.setup(
     package_data={'pbn2html': ['*.html']},
     classifiers=[
         "Programming Language :: Python :: 3",
-        "License :: OSI Approved :: MIT License"
+        "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
     entry_points = {
