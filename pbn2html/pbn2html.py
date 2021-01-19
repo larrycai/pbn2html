@@ -8,7 +8,7 @@ import pkgutil
 import pkg_resources  # part of setuptools
 version = pkg_resources.require("pbn2html")[0].version
 
-from .pbn_parser import importPBN
+from .pbn_parser import importPBN, ParseError
 
 from string import Template
 
@@ -218,34 +218,46 @@ def pbn2html(pbn_file):
 
     # handle multiple pbn in one file
     pbnstr = open(pbn_file,encoding="utf-8" ).read()
-    delimiter="[Event"
-    pbns =  [delimiter+e for e in pbnstr.split(delimiter) if "Deal" in e]
+    # delimiter="[Event"
+    delimiter="\n*"
+    if len(pbnstr.split(delimiter)) > 1:
+        pbns =  [e for e in pbnstr.split(delimiter) if "Declarer" in e]
+    else:
+        delimiter="[Event" # old format used for larry
+        pbns =  [delimiter+e for e in pbnstr.split(delimiter) if "Deal" in e]
+    print("found", len(pbns), "boards")
     result = ""
     #print(pbns)
     for pbn in pbns:
-        #print("hha", pbn)
-        tags, hands, section_auction = importPBN(pbn)
-        # bug from Jay
-        if "Event" not in tags:
-            tags["Event"] = ""
-        # print(tags, hands,section_auction)
-        all["title"] = tags["Event"]
-        all["north"] = html_card(hands["N"])
-        all["west"] = html_card(hands["W"])
-        all["east"] = html_card(hands["E"])
-        all["south"] = html_card(hands["S"])
-        all["board"] = html_board(tags["Vulnerable"],tags["Dealer"])
-        all["extra"] = html_extra(tags["Contract"],tags["Declarer"])
-        all["auction"] = html_auction(tags["Auction"], section_auction)
-        # hacked solution to check whether it is module or local
-        # > _: C:/Python36/Scripts/pbn2html
-        if "pbn2html" in os.environ.get("_"):
-            template = pkgutil.get_data(__name__,'template.html')
-            src = Template(template.decode('utf-8'))
-        else:
-            template = open("template.html", "r",encoding="utf-8").read()
-            src = Template(template)
-        result += src.safe_substitute(all)
+        # print("==================================", pbn)
+        try:
+            tags, hands, section_auction = importPBN(pbn)
+            # bug from Jay
+            if "Event" not in tags:
+                tags["Event"] = ""
+            # print(tags, hands,section_auction)
+            all["title"] = tags["Event"]
+            all["north"] = html_card(hands["N"])
+            all["west"] = html_card(hands["W"])
+            all["east"] = html_card(hands["E"])
+            all["south"] = html_card(hands["S"])
+            all["board"] = html_board(tags["Vulnerable"],tags["Dealer"])
+            all["extra"] = html_extra(tags["Contract"],tags["Declarer"])
+            all["auction"] = html_auction(tags["Auction"], section_auction)
+            # hacked solution to check whether it is module or local
+            # > _: C:/Python36/Scripts/pbn2html
+            if "pbn2html" in os.environ.get("_"):
+                template = pkgutil.get_data(__name__,'template.html')
+                src = Template(template.decode('utf-8'))
+            else:
+                template = open("template.html", "r",encoding="utf-8").read()
+                src = Template(template)
+            result += src.safe_substitute(all)
+        except ParseError as error:
+            print(error)
+        except KeyError as kerror:
+            print("Key error: ", kerror)
+
         #print(len(result))
     src = Template(html_template)
     all = { "all": result, "version": version }
