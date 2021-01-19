@@ -224,7 +224,9 @@ def pbn2html(pbn_file):
     for pbn in pbns:
         #print("hha", pbn)
         tags, hands, section_auction = importPBN(pbn)
-    
+        # bug from Jay
+        if "Event" not in tags:
+            tags["Event"] = ""
         # print(tags, hands,section_auction)
         all["title"] = tags["Event"]
         all["north"] = html_card(hands["N"])
@@ -259,7 +261,7 @@ def get_from_pbn(pbn):
         "hands": hands,
         "section_auction" : section_auction
     }
-    print(hands)
+    # print(hands)
     return pbn
 
 def get_from_pbn_file(pbn_file):
