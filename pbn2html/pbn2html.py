@@ -80,7 +80,7 @@ board_template="""
               </table>
 """
 extra_template="""
-            <td class=bchd3 style="padding: 1px; font: 10pt Verdana, sans-serif; padding: 1px; text-align: left; vertical-align: top;">$contract<br />Declarer: $declarer</td>
+            <td class=bchd3 style="padding: 1px; font: 10pt Verdana, sans-serif; padding: 1px; text-align: left; vertical-align: top;">$contract<br />by $declarer</td>
 """
 
 info_template="""
@@ -169,8 +169,8 @@ def html_extra(contract, declarer):
     src = Template(extra_template)
     css = contract_css(contract)
     # trans_declarer={"S": "南","W": "西","N": "北","E": "东"}
-    trans_declarer={"S": "S","W": "W","N": "N","E": "E"}
-
+    # trans_declarer={"S": "S","W": "W","N": "N","E": "E"}
+    trans_declarer={"S": "South","W": "West","N": "North","E": "East"}
     all = { "declarer": trans_declarer[declarer], "contract" : css}
     return src.safe_substitute(all)
 
